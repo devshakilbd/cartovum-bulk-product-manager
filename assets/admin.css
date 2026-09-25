@@ -1,0 +1,416 @@
+/* Bulk Stock & Attributes screen. Styling stays close to core admin so it feels part of WooCommerce. */
+
+.swbm-intro {
+	max-width: 70em;
+	font-size: 14px;
+}
+
+.swbm-panel {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	padding: 12px 16px 16px;
+	margin: 16px 0;
+}
+
+.swbm-panel h2 {
+	margin-top: 0;
+}
+
+.swbm-columns {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+}
+
+.swbm-columns > .swbm-panel {
+	flex: 1 1 380px;
+	margin: 0;
+}
+
+.swbm-filters {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px 16px;
+}
+
+.swbm-filters label {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	font-weight: 600;
+	min-width: 180px;
+}
+
+.swbm-filters label.swbm-wide {
+	flex: 1 1 100%;
+}
+
+.swbm-filters input,
+.swbm-filters select,
+.swbm-filters textarea {
+	font-weight: 400;
+	max-width: 100%;
+}
+
+.swbm-actions {
+	margin-bottom: 0;
+}
+
+/* Attribute conditions: one compact row each, joined by AND. */
+
+.swbm-conditions {
+	flex: 1 1 100%;
+	min-width: 0;
+	margin: 0;
+	padding: 8px 12px 10px;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	background: #f6f7f7;
+}
+
+.swbm-conditions legend {
+	padding: 0 4px;
+	font-weight: 600;
+}
+
+.swbm-conditions-hint {
+	margin: 0 0 8px;
+	color: #50575e;
+}
+
+.swbm-condition-list {
+	display: grid;
+	gap: 8px;
+}
+
+.swbm-condition {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	gap: 6px 12px;
+}
+
+.swbm-filters .swbm-condition label {
+	flex: 0 1 240px;
+	min-width: 160px;
+}
+
+.swbm-filters .swbm-condition select {
+	width: 100%;
+}
+
+.swbm-condition-join {
+	flex: 0 0 auto;
+	align-self: flex-end;
+	min-width: 38px;
+	margin-bottom: 5px;
+	padding: 2px 6px;
+	border-radius: 3px;
+	background: #2271b1;
+	color: #fff;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	text-align: center;
+}
+
+.swbm-condition:first-child .swbm-condition-join {
+	visibility: hidden;
+}
+
+.swbm-condition .swbm-cond-remove {
+	margin-bottom: 6px;
+}
+
+.swbm-conditions-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px 12px;
+	margin: 10px 0 0;
+}
+
+.swbm-selection-bar {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 12px;
+}
+
+.swbm-counts {
+	color: #50575e;
+}
+
+.swbm-pagination {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-top: 12px;
+}
+
+.swbm-empty {
+	color: #646970;
+	font-style: italic;
+}
+
+.swbm-table td {
+	vertical-align: top;
+}
+
+.swbm-table .check-column {
+	width: 2em;
+}
+
+.swbm-stock-instock {
+	color: #007017;
+}
+
+.swbm-stock-outofstock {
+	color: #b32d2e;
+}
+
+.swbm-attr {
+	display: inline-block;
+	border: 1px solid #dcdcde;
+	border-left-width: 3px;
+	border-radius: 3px;
+	padding: 1px 6px;
+	margin: 0 4px 4px 0;
+	font-size: 12px;
+	white-space: nowrap;
+}
+
+.swbm-attr-global {
+	border-left-color: #2271b1;
+}
+
+.swbm-attr-local {
+	border-left-color: #dba617;
+}
+
+.swbm-progress {
+	background: #f0f0f1;
+	border-radius: 3px;
+	height: 18px;
+	overflow: hidden;
+}
+
+.swbm-progress-bar {
+	background: #2271b1;
+	height: 100%;
+	width: 0;
+	transition: width 0.2s ease;
+}
+
+.swbm-result-list {
+	max-height: 320px;
+	overflow-y: auto;
+	margin: 0;
+	border: 1px solid #dcdcde;
+	border-radius: 3px;
+}
+
+.swbm-result {
+	margin: 0;
+	padding: 6px 10px;
+	border-bottom: 1px solid #f0f0f1;
+	font-size: 13px;
+}
+
+.swbm-result span {
+	color: #50575e;
+}
+
+.swbm-result.swbm-changed strong {
+	color: #007017;
+}
+
+.swbm-result.swbm-skipped strong {
+	color: #996800;
+}
+
+.swbm-result.swbm-failed strong {
+	color: #b32d2e;
+}
+
+/* View details: plugin information in a modal dialog. */
+
+.swbm-details {
+	width: min(640px, calc(100vw - 32px));
+	max-height: calc(100vh - 64px);
+	padding: 0;
+	border: 1px solid #c3c4c7;
+	border-radius: 6px;
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+	color: #1d2327;
+}
+
+.swbm-details[open] {
+	display: flex;
+	flex-direction: column;
+}
+
+.swbm-details::backdrop {
+	background: rgba(0, 0, 0, 0.45);
+}
+
+.swbm-details-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 12px;
+	padding: 16px 20px 12px;
+	border-bottom: 1px solid #dcdcde;
+}
+
+.swbm-details-title {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 6px 10px;
+}
+
+.swbm-details-head h2 {
+	margin: 0;
+	font-size: 20px;
+	line-height: 1.3;
+}
+
+.swbm-details-version {
+	padding: 1px 8px;
+	border-radius: 10px;
+	background: #f0f6fc;
+	color: #2271b1;
+	font-size: 12px;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.swbm-details-close {
+	flex: 0 0 auto;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	border: 0;
+	border-radius: 3px;
+	background: transparent;
+	color: #50575e;
+	cursor: pointer;
+}
+
+.swbm-details-close:hover {
+	background: #f0f0f1;
+	color: #1d2327;
+}
+
+.swbm-details-close:focus-visible {
+	outline: 2px solid #2271b1;
+	outline-offset: 1px;
+}
+
+.swbm-details-close .dashicons {
+	width: 24px;
+	height: 24px;
+	font-size: 24px;
+}
+
+.swbm-details-body {
+	padding: 14px 20px 18px;
+	overflow-y: auto;
+}
+
+.swbm-details-body h3 {
+	margin: 18px 0 8px;
+	font-size: 13px;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: #50575e;
+}
+
+.swbm-details-lede {
+	margin: 0 0 12px;
+	font-size: 14px;
+	line-height: 1.55;
+}
+
+.swbm-details-meta {
+	display: grid;
+	grid-template-columns: max-content minmax(0, 1fr);
+	gap: 4px 16px;
+	margin: 0;
+}
+
+.swbm-details-meta dt {
+	color: #50575e;
+}
+
+.swbm-details-meta dd {
+	margin: 0;
+	font-weight: 600;
+	overflow-wrap: anywhere;
+}
+
+.swbm-details-features {
+	display: grid;
+	gap: 6px;
+	margin: 0;
+}
+
+.swbm-details-features li {
+	display: flex;
+	gap: 6px;
+	margin: 0;
+	line-height: 1.45;
+}
+
+.swbm-details-features .dashicons {
+	flex: 0 0 auto;
+	color: #007017;
+}
+
+.swbm-details-table {
+	overflow-x: auto;
+}
+
+.swbm-details-table table {
+	min-width: 360px;
+}
+
+.swbm-details-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: 0;
+}
+
+.swbm-details-foot {
+	padding: 12px 20px;
+	border-top: 1px solid #dcdcde;
+	text-align: right;
+}
+
+@media screen and (max-width: 600px) {
+	.swbm-filters .swbm-condition label {
+		flex: 1 1 100%;
+	}
+
+	.swbm-details-head,
+	.swbm-details-body,
+	.swbm-details-foot {
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+
+	.swbm-details-table table {
+		min-width: 0;
+	}
+
+	.swbm-details-table th,
+	.swbm-details-table td {
+		padding-left: 6px;
+		padding-right: 6px;
+	}
+}
